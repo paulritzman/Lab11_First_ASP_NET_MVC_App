@@ -1,11 +1,16 @@
-﻿
+﻿@model First_ASP_NET_MVC_App.Models.PersonsOfTheYear
+
+<Link rel="Stylesheet" href="~/style.css" type="text/css" />
+
+<h1>Time</h1>
+
 <form method="post">
 
     <label for="StartYear">Beginning Year</label>
-    <input type="number" min="1927" max="2016" name="StartYear" />
+    <input type="number" min="1927" max="2016" value="1927" name="StartYear" />
 
     <label for="EndYear">Ending Year</label>
-    <input type="number" min="1927" max="2016" name="EndYear" />
+    <input type="number" min="1927" max="2016" value="2016" name="EndYear" />
 
     <button type="submit">Search</button>
 

@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using First_ASP_NET_MVC_App.Models;
-using First_ASP_NET_MVC_App.Models.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 
 namespace First_ASP_NET_MVC_App.Controllers
@@ -19,9 +18,9 @@ namespace First_ASP_NET_MVC_App.Controllers
 
         // Page to send years input by the user back to the Controller for processing
         [HttpPost]
-        public IActionResult Index(PersonsOfTheYear PersonsOfTheYear)
+        public IActionResult Index(int startYear, int endYear)
         {
-            return 
+            return RedirectToAction("Results", new { startYear, endYear });
         }
 
         // Page to display the "Person of the year", sorted to only include user specified years
@@ -29,13 +28,9 @@ namespace First_ASP_NET_MVC_App.Controllers
         {
             // logic to send data to View
 
-            ResultsViewModel rvm = new ResultsViewModel
-            {
-                StartYear = startYear,
-                EndYear = endYear
-            };
+            PersonsOfTheYear person = new PersonsOfTheYear();
 
-            return View();
+            return View(person.GetPersons(startYear, endYear));
         }
     }
 }
