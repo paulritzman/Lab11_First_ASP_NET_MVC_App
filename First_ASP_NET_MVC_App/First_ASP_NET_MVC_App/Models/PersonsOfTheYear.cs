@@ -12,22 +12,17 @@ namespace First_ASP_NET_MVC_App.Models
         public string Honor { get; set; }
         public string Name { get; set; }
         public string Country { get; set; }
-        public int Birth_Year { get; set; }
+        public int BirthYear { get; set; }
         public int DeathYear { get; set; }
         public string Title { get; set; }
         public string Category { get; set; }
         public string Context { get; set; }
 
-        public PersonsOfTheYear()
-        {
-
-        }
-
         public List<PersonsOfTheYear> GetPersons(int begYear, int endYear)
         {
-            List<PersonsOfTheYear> people = new List<PersonsOfTheYear>;
+            List<PersonsOfTheYear> people = new List<PersonsOfTheYear>();
             string path = Environment.CurrentDirectory;
-            string newPath = Path.GetFullPath(Path.Combine(path, @"wwwroot\personOfTheYear.csv");
+            string newPath = Path.GetFullPath(Path.Combine(path, @"wwwroot\personOfTheYear.csv"));
             string[] myFile = File.ReadAllLines(newPath);
 
             for (int i = 1; i < myFile.Length; i++)
@@ -39,7 +34,7 @@ namespace First_ASP_NET_MVC_App.Models
                     Honor = fields[1],
                     Name = fields[2],
                     Country = fields[3],
-                    Birth_Year = (fields[4] == "") ? 0 : Convert.ToInt32(fields[4]),
+                    BirthYear = (fields[4] == "") ? 0 : Convert.ToInt32(fields[4]),
                     DeathYear = (fields[5] == "") ? 0 : Convert.ToInt32(fields[5]),
                     Title = fields[6],
                     Category = fields[7],

@@ -1,5 +1,60 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
+﻿@model List<First_ASP_NET_MVC_App.Models.PersonsOfTheYear>
+
+<head>
+    <Link rel="Stylesheet" href="~/style.css" type="text/css" />
+</head>
+
+<h1>Results</h1>
+
+<table>
+    <thead>
+        <tr>
+            <th>Year</th>
+            <th>Honor</th>
+            <th>Name</th>
+            <th>Country</th>
+            <th>Birth Year</th>
+            <th>Death Year</th>
+            <th>Title</th>
+            <th>Category</th>
+            <th>Context</th>
+        </tr>
+    </thead>
+    <tbody>
+         
+        @foreach (var person in Model)
+        {
+            <tr>
+                <td data-label="Year">@person.Year</td>
+                <td data-label="Honor">@person.Honor</td>
+                <td data-label="Name">@person.Name</td>
+                <td data-label="Country">@person.Country</td>
+
+                @if (person.BirthYear == 0)
+                {
+                    <td data-label="Birth Year">-</td>
+                }
+                else
+                {
+                    <td data-label="Birth Year">@person.BirthYear</td>
+                }
+
+                @if (person.DeathYear == 0)
+                {
+                    <td data-label="Death Year">-</td>
+                }
+                else
+                {
+                    <td data-label="Death Year">@person.DeathYear</td>
+                }
+
+                <td data-label="Title">@person.Title</td>
+                <td data-label="Category">@person.Category</td>
+                <td data-label="Context">@person.Context</td>
+            </tr>
+        }
+
+    </tbody>
+</table>
+
+@Html.ActionLink("New Search", "Index")
