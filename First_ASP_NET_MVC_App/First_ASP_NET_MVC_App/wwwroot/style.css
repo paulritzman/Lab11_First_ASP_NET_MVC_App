@@ -1,2 +1,27 @@
 ﻿body {
+    text-align: center;
+}
+
+#time-logo {
+    border: 5px solid red;
+    color: red;
+    margin-left: 40%;
+    padding: 50px;
+    width: 10%;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+td {
+    text-align: center;
+}
+
+td:not(:last-of-type) {
+    border-right: 1px solid black;
+}
+
+tr {
+    border-bottom: 1px solid black;
 }
